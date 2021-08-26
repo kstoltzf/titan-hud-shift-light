@@ -8,9 +8,10 @@ from shift_light import rabbitmq_service, light_control_service, shift_light_ser
 
 class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self.light_control_service_test = light_control_service.LightControlService()
-        self.shift_light_service_test = shift_light_service.ShiftLightService(self.light_control_service_test)
-        self.config_service_test = config_service.ConfigService('test.ini')
+        self.config_service_test = config_service.ConfigService('./tests/test.ini')
+        self.light_control_service_test = light_control_service.LightControlService(self.config_service_test, True)
+        self.shift_light_service_test = shift_light_service.ShiftLightService(self.light_control_service_test,
+                                                                              self.config_service_test)
         self.rabbitmq_service_test = \
             rabbitmq_service.RabbitmqService(self.shift_light_service_test, self.config_service_test)
 

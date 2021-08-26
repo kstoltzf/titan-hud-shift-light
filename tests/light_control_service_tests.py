@@ -5,8 +5,8 @@ from shift_light import light_control_service, config_service
 
 class LightControlServiceTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.config_service = config_service.ConfigService('test.ini')
-        self.light_control_service_test = light_control_service.LightControlService(self.config_service, True)
+        self.config_service_test = config_service.ConfigService('./tests/test.ini')
+        self.light_control_service_test = light_control_service.LightControlService(self.config_service_test, True)
 
     def test_activate_first_green_lights_activates_both_first_green_lights(self):
         self.light_control_service_test.left_first_green_led.off()
