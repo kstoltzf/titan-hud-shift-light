@@ -33,6 +33,8 @@ jobs:
       run: |
         coverage run -a -m unittest tests/shift_light_service_tests.py
         coverage run -a -m unittest tests/light_control_service_tests.py
+        coverage run -a -m unittest tests/main_tests.py
+        coverage run -a -m unittest tests/rabbitmq_service_tests.py
     - name: Generage code coverage report
       run: |
         coverage xml -o coverage-reports/code-coverage.xml

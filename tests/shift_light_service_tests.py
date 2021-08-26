@@ -1,7 +1,6 @@
 import unittest
 
-from shift_light import shift_light_service
-from shift_light import light_control_service
+from shift_light import shift_light_service, light_control_service
 from unittest.mock import MagicMock
 
 
