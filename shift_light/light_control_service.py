@@ -5,17 +5,6 @@ from shift_light import config_service
 
 
 class LightControlService(object):
-    # left_first_green_led: LED
-    # right_first_green_led: LED
-    # left_second_green_led: LED
-    # right_second_green_led: LED
-    # left_first_yellow_led: LED
-    # right_first_yellow_led: LED
-    # left_second_yellow_led: LED
-    # right_second_yellow_led: LED
-    # right_red_led: LED
-    # left_red_led: LED
-
     def __init__(self, config_service: config_service, test_mode: bool):
         self.config_service = config_service
 

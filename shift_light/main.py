@@ -1,6 +1,3 @@
-import os
-import sys
-
 from shift_light import shift_light_service, light_control_service, rabbitmq_service, config_service
 
 
@@ -17,6 +14,6 @@ if __name__ == '__main__':
         main(rabbitmq_service)
     except KeyboardInterrupt:
         try:
-            sys.exit(0)
+            raise
         except SystemExit:
-            os._exit(0)
+            raise
