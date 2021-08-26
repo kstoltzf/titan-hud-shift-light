@@ -1,6 +1,6 @@
 import unittest
 
-from shift_light import shift_light_service, light_control_service
+from shift_light import shift_light_service, light_control_service, config_service
 from unittest.mock import MagicMock
 
 
@@ -17,7 +17,9 @@ class ShiftLightServiceTests(unittest.TestCase):
         self.light_control_service_test.deactivate_first_yellow_lights = MagicMock()
         self.light_control_service_test.deactivate_second_yellow_lights = MagicMock()
         self.light_control_service_test.deactivate_red_lights = MagicMock()
-        self.shift_light_service_test = shift_light_service.ShiftLightService(self.light_control_service_test)
+        self.config_service = config_service.ConfigService('test.ini')
+        self.shift_light_service_test = shift_light_service.ShiftLightService(self.light_control_service_test,
+                                                                              self.config_service)
 
     def test_toggle_lights_should_activate_first_green_lights_when_rpms_are_equal_to_4000(self):
         self.shift_light_service_test.toggle_lights(4000)

@@ -22,6 +22,31 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual('test_queue', queue)
 
+    def test_get_first_green_lights_threshold(self):
+        value = self.config_service.get_first_green_lights_threshold()
+
+        self.assertEqual(4000, value)
+
+    def test_get_second_green_lights_threshold(self):
+        value = self.config_service.get_second_green_lights_threshold()
+
+        self.assertEqual(4500, value)
+
+    def test_get_first_yellow_lights_threshold(self):
+        value = self.config_service.get_first_yellow_lights_threshold()
+
+        self.assertEqual(5000, value)
+
+    def test_get_second_yellow_lights_threshold(self):
+        value = self.config_service.get_second_yellow_lights_threshold()
+
+        self.assertEqual(5500, value)
+
+    def test_get_red_lights_threshold(self):
+        value = self.config_service.get_red_lights_threshold()
+
+        self.assertEqual(6000, value)
+
 
 if __name__ == '__main__':
     unittest.main()
