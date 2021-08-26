@@ -7,8 +7,6 @@ from shift_light import light_control_service
 
 
 class LightControlServiceTests(unittest.TestCase):
-    light_control_service_test: light_control_service
-
     def setUp(self) -> None:
         self.light_control_service_test = light_control_service.LightControlService()
 
@@ -125,6 +123,7 @@ class LightControlServiceTests(unittest.TestCase):
         self.light_control_service_test.right_second_yellow_led.close()
         self.light_control_service_test.left_red_led.close()
         self.light_control_service_test.right_red_led.close()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -5,9 +5,6 @@ from unittest.mock import MagicMock
 
 
 class ShiftLightServiceTests(unittest.TestCase):
-    light_control_service_test: light_control_service
-    shift_light_service_test: shift_light_service
-
     def setUp(self) -> None:
         self.light_control_service_test = light_control_service.LightControlService()
         self.light_control_service_test.activate_first_green_lights = MagicMock()

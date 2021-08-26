@@ -5,10 +5,6 @@ from shift_light import rabbitmq_service, shift_light_service, light_control_ser
 
 
 class MyTestCase(unittest.TestCase):
-    shift_light_service_test: shift_light_service
-    light_control_service_test: light_control_service
-    rabbitmq_service_test: rabbitmq_service
-
     def setUp(self) -> None:
         self.light_control_service_test = light_control_service.LightControlService()
         self.shift_light_service_test = shift_light_service.ShiftLightService(self.light_control_service_test)
