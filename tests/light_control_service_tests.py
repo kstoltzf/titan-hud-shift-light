@@ -1,26 +1,12 @@
 import unittest
 
-from gpiozero import LED, Device
-from gpiozero.pins.mock import MockFactory
-
-from shift_light import light_control_service
+from shift_light import light_control_service, config_service
 
 
 class LightControlServiceTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.light_control_service_test = light_control_service.LightControlService()
-
-        Device.pin_factory = MockFactory()
-        self.light_control_service_test.left_first_green_led = LED(1)
-        self.light_control_service_test.right_first_green_led = LED(2)
-        self.light_control_service_test.left_second_green_led = LED(3)
-        self.light_control_service_test.right_second_green_led = LED(4)
-        self.light_control_service_test.left_first_yellow_led = LED(5)
-        self.light_control_service_test.right_first_yellow_led = LED(6)
-        self.light_control_service_test.left_second_yellow_led = LED(7)
-        self.light_control_service_test.right_second_yellow_led = LED(8)
-        self.light_control_service_test.left_red_led = LED(9)
-        self.light_control_service_test.right_red_led = LED(10)
+        self.config_service = config_service.ConfigService('test.ini')
+        self.light_control_service_test = light_control_service.LightControlService(self.config_service, True)
 
     def test_activate_first_green_lights_activates_both_first_green_lights(self):
         self.light_control_service_test.left_first_green_led.off()
