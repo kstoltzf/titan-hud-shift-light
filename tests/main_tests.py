@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
 
-from shift_light import rabbitmq_service, shift_light_service, light_control_service, main, config_service
+from shift_light import rabbitmq_service, shift_light_service, light_control_service, __main__, config_service
 
 
 class MyTestCase(unittest.TestCase):
@@ -15,7 +15,7 @@ class MyTestCase(unittest.TestCase):
         self.rabbitmq_service_test.start = MagicMock()
 
     def test_main_starts_rabbitmq_service(self):
-        main.main(self.rabbitmq_service_test)
+        __main__.main(self.rabbitmq_service_test)
 
         self.rabbitmq_service_test.start.assert_called_once()
 
