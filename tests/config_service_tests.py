@@ -3,7 +3,7 @@ import unittest
 from shift_light import config_service
 
 
-class MyTestCase(unittest.TestCase):
+class ConfigServiceTests(unittest.TestCase):
     def setUp(self) -> None:
         self.config_service_test = config_service.ConfigService('./tests/test.ini')
 

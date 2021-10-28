@@ -6,7 +6,7 @@ import pika
 from shift_light import rabbitmq_service, light_control_service, shift_light_service, config_service
 
 
-class MyTestCase(unittest.TestCase):
+class RabbitMqServiceTests(unittest.TestCase):
     def setUp(self) -> None:
         self.config_service_test = config_service.ConfigService('./tests/test.ini')
         self.light_control_service_test = light_control_service.LightControlService(self.config_service_test, True)
